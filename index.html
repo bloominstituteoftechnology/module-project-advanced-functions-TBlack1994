@@ -49,7 +49,11 @@
       let result = []
       for (let index in learners) {
         const learner = learners[index]
-        processSingleLearner(learner)
+        if (learner.lovesJS === 0) {
+          learner.lovesJS = false
+        } else if (learner.lovesJS === 1) {
+          learner.lovesJS = true 
+        }
             }
             return learners
     }
@@ -60,8 +64,11 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 Use arrow functions whenever possible.
-    const processLearnerForEach = () => {
-
+    const processLearnerForEach = (learners) => {
+      learners.forEach(learner => {
+        processSingleLearner(learner)
+      })
+      return learners
     }
 
     // 👉 CHALLENGE 4
